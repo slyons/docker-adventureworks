@@ -1,12 +1,30 @@
 #!/bin/bash
 
 if [ ! -f adventureworks.bak ]; then
-    echo "Downloading AdventureWorks backup file from Microsoft..."
+    echo "Downloading AdventureWorks OLTP backup file from Microsoft..."
     wget https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2019.bak -O adventureworks.bak -q
     echo "Download complete."
 else
-    echo "Backup file already downloaded. Skipping."
+    echo "AdventureWorks backup file already downloaded. Skipping."
 fi
-echo "Building docker image."
-docker build . -t chriseaton/adventureworks:latest
-docker tag chriseaton/adventureworks:latest chriseaton/adventureworks:2019-latest
+if [ ! -f adventureworks-dw.bak ]; then
+    echo "Downloading AdventureWorks data warehouse backup file from Microsoft..."
+    wget https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorksDW2019.bak -O adventureworks-dw.bak -q
+    echo "Download complete."
+else
+    echo "AdventureWorks backup file already downloaded. Skipping."
+fi
+if [ ! -f adventureworks-light.bak ]; then
+    echo "Downloading AdventureWorks light backup file from Microsoft..."
+    wget https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2019.bak -O adventureworks-light.bak -q
+    echo "Download complete."
+else
+    echo "AdventureWorks backup file already downloaded. Skipping."
+fi
+echo "Building OLTP docker image."
+docker build . -t chriseaton/adventureworks:latest --build-arg BAK_FILE=./adventureworks.bak
+docker tag chriseaton/adventureworks:latest chriseaton/adventureworks:oltp
+echo "Building data warehouse docker image."
+docker build . -t chriseaton/adventureworks:datawarehouse --build-arg BAK_FILE=./adventureworks-dw.bak
+echo "Building light docker image."
+docker build . -t chriseaton/adventureworks:light --build-arg BAK_FILE=./adventureworks-light.bak

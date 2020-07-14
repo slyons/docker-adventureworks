@@ -1,6 +1,13 @@
 # Docker AdventureWorks
 This project is available on docker-hub under the [`chriseaton/adventureworks`](https://hub.docker.com/r/chriseaton/adventureworks) repository.
 
+There are three versions tagged:
+| Tag | Description |
+|-----|-------------|
+| `latest` or `oltp` | This image contains the standard OLTP version of the AdventureWorks database. |
+| `datawarehouse` | This image utilizes the data warehouse version of the AdventureWorks database. |
+| `light` | This image utilizes the "light" version of the AdventureWorks database. |
+
 ## Building
 Run the `build.sh` script to download the AdventureWorks [backup file from Microsoft](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure), and to build and tag the docker image.
 
