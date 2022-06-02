@@ -38,6 +38,7 @@ docker run -p 1433:1433 -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=my_password' -d chris
 ```
 
 ### Postgres
+This docker image uses the same environmental variables defined on the [Postgres docker image](https://hub.docker.com/_/postgres).
 ```
 docker run -p 5432:5432 -e 'POSTGRES_PASSWORD=my_password' -d chriseaton/adventureworks:postgres
 ```
