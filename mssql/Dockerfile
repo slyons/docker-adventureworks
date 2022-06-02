@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/mssql/server:2019-latest
+FROM mcr.microsoft.com/mssql/server:2017-latest
 ARG BAK_FILE
 ARG SA_PASSWORD
 ENV SA_PASSWORD=${SA_PASSWORD}
