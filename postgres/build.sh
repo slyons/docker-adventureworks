@@ -1,4 +1,4 @@
 #!/bin/bash
 
 echo "Building postgres docker image."
-docker build . -t chriseaton/adventureworks:postgres
+docker build --progress=plain . -t chriseaton/adventureworks:postgres -t chriseaton/adventureworks:postgres-16
