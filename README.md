@@ -1,12 +1,21 @@
 # Docker AdventureWorks
-This project is available on docker-hub under the [`chriseaton/adventureworks`](https://hub.docker.com/r/chriseaton/adventureworks) repository.
+This project is available on...
+- Docker Hub: [`chriseaton/adventureworks`](https://hub.docker.com/r/chriseaton/adventureworks)
+- GitHub: [`chriseaton/docker-adventureworks`](https://github.com/chriseaton/docker-adventureworks)
+
+To run one of the samples, see §Running below.    
+You can find samples of a `docker` or `docker-compose.yaml` files in the `samples/` directory.
 
 ## Tags & Support
 Currently this docker image is available in two supported database engines: Microsoft SQL Server & Postgres
 
 To ensure parity and cross-compatibility, we use a slightly older version of each.
-- Microsoft SQL 2016
-- Postgres 13
+
+- Microsoft SQL 2022 & 2017
+- Postgres 16 & 13
+
+If you'd like to leverage a specific version, you can clone this repository and modify the `build.sh` scripts in the 
+appropriate folder.
 
 ### Microsoft SQL Server
 There are three versions tagged for Microsoft SQL Server:
@@ -38,13 +47,17 @@ Run the `build.sh` script to download the AdventureWorks [backup file from Micro
 ### Microsoft SQL Server
 This docker image uses the same environmental variables defined on the [Microsoft SQL Server docker image](https://hub.docker.com/_/microsoft-mssql-server).
 ```
-docker run -p 1433:1433 -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=my_password' -d chriseaton/adventureworks:latest
+docker run -p 1433:1433 -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=My_password1' -d chriseaton/adventureworks:latest
 ```
+
+> [!TIP]
+> Replace `My_password1` with your own secure password. Note that the password *must* pass minimum complexity requirements
+or you won't be able to connect!
 
 ### Postgres
 This docker image uses the same environmental variables defined on the [Postgres docker image](https://hub.docker.com/_/postgres).
 ```
-docker run -p 5432:5432 -e 'POSTGRES_PASSWORD=my_password' -d chriseaton/adventureworks:postgres
+docker run -p 5432:5432 -e 'POSTGRES_PASSWORD=My_password1' -d chriseaton/adventureworks:postgres
 ```
 
 ## Publishing
