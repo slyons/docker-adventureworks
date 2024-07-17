@@ -3,7 +3,7 @@ This folder contains samples for [`chriseaton/docker-adventureworks`](https://gi
 docker images.
 
 ## Docker
-See the main `[README.md](https://github.com/chriseaton/docker-adventureworks)` §Running for how to run the images
+See the main [`README.md`](https://github.com/chriseaton/docker-adventureworks) §Running for how to run the images
 locally in docker.
 
 ## Docker Compose
