@@ -40,9 +40,6 @@ No functions, custom types, or stored procedures are included.
 | `postgres` or `postgres-16` | This image adapts the "light" version of the AdventureWorks database to Postgres 16.  |
 | `postgres-13` | This image adapts the "light" version of the AdventureWorks database to Postgres 13.  |
 
-## Building
-Run the `build.sh` script to download the AdventureWorks [backup file from Microsoft](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure), and to build and tag the docker image.
-
 ## Running
 ### Microsoft SQL Server
 This docker image uses the same environmental variables defined on the [Microsoft SQL Server docker image](https://hub.docker.com/_/microsoft-mssql-server).
@@ -60,7 +57,12 @@ This docker image uses the same environmental variables defined on the [Postgres
 docker run -p 5432:5432 -e 'POSTGRES_PASSWORD=My_password1' -d chriseaton/adventureworks:postgres
 ```
 
-## Publishing
+## Development
+
+### Building
+Run the `build.sh` script to download the AdventureWorks [backup file from Microsoft](https://docs.microsoft.com/en-us/sql/samples/adventureworks-install-configure), and to build and tag the docker image.
+
+### Publishing
 If you are a maintainer, you can publish the image to docker hub [chriseaton/adventureworks](https://hub.docker.com/repository/docker/chriseaton/adventureworks).
 
 ```sh
