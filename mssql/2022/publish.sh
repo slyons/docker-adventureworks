@@ -1,6 +1,6 @@
 #!/bin/bash
 
-YEAR=2019
+YEAR=2022
 
 docker push slyons/adventureworks:latest-${YEAR}
 docker push slyons/adventureworks:oltp-${YEAR}
